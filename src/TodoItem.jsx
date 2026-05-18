@@ -1,7 +1,15 @@
-function TodoItem({ text, onDelete }) {
+function TodoItem({ text, completed, onDelete, onToggle }) {
+    console.log(`Rendering TodoItem: ${text}, completed: ${completed}`);
     return (
         <li>
-            {text}
+            <input 
+                type="checkbox"
+                checked={completed}
+                onChange={onToggle}
+            />
+            <span style={{ textDecoration: completed ? "line-through" : "none" }}>
+                {text}
+            </span>
             <button onClick={onDelete}>Delete</button>
         </li>
     );

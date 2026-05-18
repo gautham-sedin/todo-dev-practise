@@ -35,6 +35,19 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  function handleToggle(id) {
+    const updatedTodos = todos.map((todo) =>
+      {
+        if(todo.id === id) {
+          console.log("Flipping the todo completion status from ", todo.completed, " to ", !todo.completed);
+          return {...todo, completed: !todo.completed};
+        }
+        return todo;
+    });
+
+    setTodos(updatedTodos);
+  }
+
   return (
     <>
       <h1>To do list!</h1>
@@ -52,7 +65,9 @@ function App() {
           <TodoItem 
             key={todo.id} 
             text={todo.text}
+            completed={todo.completed}
             onDelete={() => handleDelete(todo.id)}
+            onToggle={() => handleToggle(todo.id)}
           />
         ))
       }
