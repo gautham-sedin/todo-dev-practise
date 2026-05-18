@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const todos = ["First task", "Second task", "Third task"];
 
   return (
     <>
-      <h1>Hellow!</h1>
+      <h1>To do list!</h1>
+      <ul>
+      {
+        todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))
+      }
+      </ul>
     </>
   )
 }
