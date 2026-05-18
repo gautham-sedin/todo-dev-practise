@@ -2,13 +2,11 @@ import { useState } from 'react'
 import './App.css'
 import TodoItem from './TodoItem';
 
-let nextId = 4;
-
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: "Buy groceries", completed: false },
-    { id: 2, text: "Do laundry", completed: false },
-    { id: 3, text: "Read a book", completed: false }
+    { id: Date.now(), text: "Buy groceries", completed: false },
+    { id: Date.now() + 1, text: "Do laundry", completed: false },
+    { id: Date.now() + 2, text: "Read a book", completed: false }
   ]);
   const [input, setInput] = useState("");
   
@@ -20,11 +18,10 @@ function App() {
     }
 
     const newTodo = {
-      id: nextId,
+      id: Date.now(),
       text: input.trim(),
       completed: false
     };
-    nextId++;
 
     console.log("New task added: ", newTodo);
 
