@@ -1,5 +1,4 @@
 function TodoItem({ text, completed, onDelete, onToggle }) {
-    console.log(`Rendering TodoItem: ${text}, completed: ${completed}`);
     return (
         <li>
             <input 

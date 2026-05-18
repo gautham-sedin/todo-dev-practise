@@ -39,7 +39,6 @@ function App() {
     const updatedTodos = todos.map((todo) =>
       {
         if(todo.id === id) {
-          console.log("Flipping the todo completion status from ", todo.completed, " to ", !todo.completed);
           return {...todo, completed: !todo.completed};
         }
         return todo;
