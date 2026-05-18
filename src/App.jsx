@@ -24,6 +24,7 @@ function App() {
       text: input.trim(),
       completed: false
     };
+    nextId++;
 
     console.log("New task added: ", newTodo);
 
