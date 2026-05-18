@@ -4,16 +4,32 @@ import TodoItem from './TodoItem';
 
 function App() {
   const [todos, setTodos] = useState(["First task", "Second task", "Third task"]);
-  console.log("Current todos: ", todos);
+  const [input, setInput] = useState("");
+  
+  function handleAdd() {
+    console.log("Add clicked.");
+    if(input.trim() === "") return;
 
-  // function handleClick() {
-  //   setTodos(["New task"]);
-  // }
+    setTodos([...todos, input.trim()]);
+    setInput("");
+  }
+
+  function handleKeyDown(e) {
+    if(e.key === "Enter")
+      handleAdd();
+  }
 
   return (
     <>
       <h1>To do list!</h1>
-      {/* <button onClick={handleClick}>Click this button</button> */}
+      <input 
+        type="text" 
+        placeholder="Add a new todo" 
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      <button onClick={handleAdd}>Add Todo</button>
       <ul>
       {
         todos.map((todo, index) => (
@@ -25,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
