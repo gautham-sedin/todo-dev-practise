@@ -34,6 +34,13 @@ function App() {
       handleAdd();
   }
 
+  function handleDelete(id) {
+    console.log("Triggered delete functionality");
+    const updatedTodos = todos.filter((todos) => todos.id !== id);
+    console.log("Updated todos list: ", updatedTodos);
+    setTodos(updatedTodos);
+  }
+
   return (
     <>
       <h1>To do list!</h1>
@@ -48,7 +55,11 @@ function App() {
       <ul>
       {
         todos.map((todo, index) => (
-          <TodoItem key={todo.id} text={todo.text} />
+          <TodoItem 
+            key={todo.id} 
+            text={todo.text}
+            onDelete={() => handleDelete(todo.id)}
+          />
         ))
       }
       </ul>

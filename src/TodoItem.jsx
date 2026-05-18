@@ -1,5 +1,10 @@
-function TodoItem({ text }) {
-    return <li>{text}</li>;
+function TodoItem({ text, onDelete }) {
+    return (
+        <li>
+            {text}
+            <button onClick={onDelete}>Delete</button>
+        </li>
+    );
 }
 
 export default TodoItem;
