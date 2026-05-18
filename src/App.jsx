@@ -2,8 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import TodoItem from './TodoItem';
 
+let nextId = 4;
+
 function App() {
-  const [todos, setTodos] = useState(["First task", "Second task", "Third task"]);
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Buy groceries", completed: false },
+    { id: 2, text: "Do laundry", completed: false },
+    { id: 3, text: "Read a book", completed: false }
+  ]);
   const [input, setInput] = useState("");
   
   function handleAdd() {
@@ -13,7 +19,15 @@ function App() {
       return;
     }
 
-    setTodos([...todos, input.trim()]);
+    const newTodo = {
+      id: nextId,
+      text: input.trim(),
+      completed: false
+    };
+
+    console.log("New task added: ", newTodo);
+
+    setTodos([...todos, newTodo]);
     setInput("");
   }
 
@@ -36,7 +50,7 @@ function App() {
       <ul>
       {
         todos.map((todo, index) => (
-          <TodoItem key={index} text={todo} />
+          <TodoItem key={todo.id} text={todo.text} />
         ))
       }
       </ul>
