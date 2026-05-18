@@ -11,9 +11,7 @@ function App() {
   const [input, setInput] = useState("");
   
   function handleAdd() {
-    console.log("Add clicked.");
-    if(input.trim() === ""){ 
-      console.log("Empty todo detected.");
+    if(input.trim() === ""){
       return;
     }
 
@@ -22,8 +20,6 @@ function App() {
       text: input.trim(),
       completed: false
     };
-
-    console.log("New task added: ", newTodo);
 
     setTodos([...todos, newTodo]);
     setInput("");
@@ -35,9 +31,7 @@ function App() {
   }
 
   function handleDelete(id) {
-    console.log("Triggered delete functionality");
     const updatedTodos = todos.filter((todos) => todos.id !== id);
-    console.log("Updated todos list: ", updatedTodos);
     setTodos(updatedTodos);
   }
 
