@@ -8,7 +8,10 @@ function App() {
   
   function handleAdd() {
     console.log("Add clicked.");
-    if(input.trim() === "") return;
+    if(input.trim() === ""){ 
+      console.log("Empty todo detected.");
+      return;
+    }
 
     setTodos([...todos, input.trim()]);
     setInput("");
